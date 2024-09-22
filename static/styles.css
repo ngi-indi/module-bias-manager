@@ -23,7 +23,7 @@ h1 {
     margin-bottom: 20px;
 }
 
-textarea, select {
+select {
     width: 100%;
     margin-bottom: 20px;
     padding: 10px;
@@ -32,9 +32,24 @@ textarea, select {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+textarea {
+    width: 96.5%;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Adjust the space between buttons */
+    gap: 10px; /* Optional: Add space between buttons */
+}
+
 button {
     width: 48%;
-    padding: 10px;
+            padding: 10px 20px;
     background-color: #007BFF;
     color: white;
     border: none;
@@ -53,15 +68,4 @@ button:hover {
     padding: 10px;
     border-radius: 5px;
     font-size: 16px;
-}
-
-#prediction {
-    background-color: #e9ecef;
-    border: 1px solid #ced4da;
-}
-
-#explained {
-    background-color: #f8f9fa;
-    border: 1px solid #ced4da;
-    color: #495057;
 }

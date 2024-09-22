@@ -50,7 +50,7 @@ def explain_model(model, tokenizer, sentence, target_label=1):
     """Explain model predictions using LayerIntegratedGradients."""
 
     # Access ConvBERT's word embeddings layer (this should match your model structure)
-    layer = model.embeddings.word_embeddings  # Adjust based on model type
+    layer = model.convbert.embeddings.word_embeddings
 
     # Tokenize input sentence
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding="max_length", max_length=128)
@@ -66,8 +66,7 @@ def explain_model(model, tokenizer, sentence, target_label=1):
     lig = LayerIntegratedGradients(forward_func, layer)
 
     # Get attributions for the target label (default is 1)
-    attributions, delta = lig.attribute(inputs=input_ids, additional_forward_args=(attention_mask,),
-                                        target=target_label, return_convergence_delta=True)
+    attributions, delta = lig.attribute(inputs=input_ids, additional_forward_args=(attention_mask,), target=target_label, return_convergence_delta=True)
 
     # Visualize and return attributions in HTML format
     explained_text = visualize_attributions(attributions, inputs, tokenizer)
