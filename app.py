@@ -4,6 +4,7 @@ from helpers.models import modelspecifications
 from helpers.explainer import explain_model
 import warnings
 import torch
+import time
 import os
 
 # Suppress Hugging Face transformers warnings
@@ -87,13 +88,21 @@ def predict():
     if not model or not tokenizer:
         return jsonify({"error": "Invalid task name"}), 400
 
-    # Get prediction from the model
+    # Measure prediction time
     print("Predicting...")
+    start_time = time.time()  # Start timer for prediction
     prediction = get_prediction(model, tokenizer, sentence)
+    end_time = time.time()  # End timer for prediction
+    prediction_time = end_time - start_time  # Compute time taken
+    print(f"Prediction completed in {prediction_time:.4f} seconds")
 
-    # Get explanation for the prediction
+    # Measure explanation time
     print("Explaining...")
+    start_time = time.time()  # Start timer for explanation
     explained_text = explain_model(model, tokenizer, sentence, prediction)
+    end_time = time.time()  # End timer for explanation
+    explanation_time = end_time - start_time  # Compute time taken
+    print(f"Explanation completed in {explanation_time:.4f} seconds")
 
     # Return response as JSON
     return jsonify({

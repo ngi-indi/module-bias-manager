@@ -18,6 +18,7 @@
 - [Usage](#usage)
   - [Using the Web-based client](#using-the-web-based-client-html)
   - [Using the Python client script](#using-the-python-client-script)
+  - [Using the Docker container](#using-the-docker-container)
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
@@ -107,6 +108,23 @@ Open ```demo/client.py``` and change the following variables to your desired val
 #### 3. View the results:
 - The script will print whether the sentence contains bias.
 - An explanation will be provided in the terminal.
+
+### Using the Docker container
+
+#### 1. Build the Docker image:
+Run the following command to build the Docker image:
+
+    docker build -t flask-app .
+
+This will create a Docker image named ```flask-app```.
+
+#### 2. Run the Docker container:
+Once the image is built, you can run it using the following command
+
+    docker run -p 5000:5000 flask-app
+
+This command maps port 5000 on your local machine to port 5000 inside the container, allowing you to access the Flask app at http://localhost:5000.
+
 
 ## Contributing
 
