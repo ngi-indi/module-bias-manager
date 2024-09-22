@@ -96,9 +96,9 @@ The ```demo/client.py``` script offers a command-line approach.
 #### 1. Modify the Python script:
 Open ```demo/client.py``` and change the following variables to your desired values:
 
-    MODEL = 'roberta'  # Available options: bart, convbert, electra, gpt2, roberta, t5, etc.
-    TASK = 'gender-bias'  # Available bias tasks: cognitive_bias, gender_bias, hate_speech, etc.
-    SENTENCE = 'Enter the sentence you want to check for bias.'
+    MODEL = 'convbert'  # Available options: bart, convbert, electra, gpt2, roberta, t5, etc.
+    TASK = 'gender-bias'  # Available bias tasks: cognitive-bias, gender-bias, hate-speech, etc.
+    SENTENCE = 'I only read news articles that support my belief that climate change is a hoax because everything else seems exaggerated.'
 
 #### 2. Run the script:
    
@@ -139,7 +139,7 @@ Open ```demo/client.py``` and change the following variables to your desired val
 - Ensure that your PR references any relevant issues.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+This project is licensed under the MIT License - see the [LICENSE](https://github.com/ngi-indi/module-bias-manager/blob/main/LICENSE.md) file for details.
 
 ## Contact
 For any questions or support, please reach out to:
