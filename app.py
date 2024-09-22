@@ -1,6 +1,6 @@
 from flask import Flask, request, jsonify, render_template
-from explainer import explain_model
-from models import modelspecifications
+from helpers.explainer import explain_model
+from helpers.models import modelspecifications
 import torch
 import os
 

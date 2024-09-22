@@ -13,7 +13,6 @@
 
 ## Table of Contents
 
-- [Project Structure](#project-structure)
 - [Installation](#installation)
 - [Prerequisites](#prerequisites)
 - [Usage](#usage)
@@ -23,19 +22,6 @@
 - [Contact](#contact)
 
 ---
-
-## Project Structure
-
-```bash
-module-bias-manager/
-│
-├── app.py               # Main Flask application for handling requests
-├── client.py            # Python client script for sending bias prediction requests
-├── explainer.py         # XAI script for explaining model predictions
-├── models.py            # Script for loading pre-trained models
-├── demo/                # Directory containing demo files and additional resources
-└── README.md            # Project documentation (this file)
-```
 
 ## Installation
 
@@ -107,10 +93,10 @@ The web-based client provides a simple UI for interacting with the bias detectio
 
 ### Using the Python client script
 
-The ```client.py``` script offers a command-line approach.
+The ```demo/client.py``` script offers a command-line approach.
 
 #### 1. Modify the Python script:
-Open ```client.py``` and change the following variables to your desired values:
+Open ```demo/client.py``` and change the following variables to your desired values:
 
     MODEL = 'roberta'  # Available options: bart, convbert, electra, gpt2, roberta, t5, etc.
     TASK = 'gender_bias'  # Available bias tasks: cognitive_bias, gender_bias, hate_speech, etc.
@@ -118,7 +104,7 @@ Open ```client.py``` and change the following variables to your desired values:
 
 #### 2. Run the script:
    
-    python client.py
+    python ./demo/client.py
 
 #### 3. View the results:
 - The script will print whether the sentence contains bias.
