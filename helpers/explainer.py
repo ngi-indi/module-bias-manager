@@ -70,5 +70,4 @@ def explain_model(model, tokenizer, sentence, target_label=1):
 
     # Visualize and return attributions in HTML format
     explained_text = visualize_attributions(attributions, inputs, tokenizer)
-
     return explained_text

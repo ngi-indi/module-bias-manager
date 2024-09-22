@@ -4,8 +4,8 @@ import requests
 URL = 'http://127.0.0.1:5000/predict'
 
 # Hardcoded parameters: model, task, and sentence
-MODEL = 'roberta'  # Choose from 'bart', 'convbert', 'electra', 'gpt2', 'roberta', 'robertatwitter', 't5'
-TASK = 'gender_bias'  # Choose from 'cognitive_bias', 'fake_news', 'gender_bias', 'hate_speech', 'linguistic_bias', 'political_bias', 'racial_bias'
+MODEL = 'convbert'  # Choose from 'bart', 'convbert', 'electra', 'gpt2', 'roberta', 'robertatwitter', 't5'
+TASK = 'gender-bias'  # Choose from 'cognitive-bias', 'fake-news', 'gender-bias', 'hate-speech', 'linguistic-bias', 'political-bias', 'racial-bias'
 SENTENCE = 'He is always aggressive when dealing with issues.'
 
 
@@ -32,7 +32,7 @@ def display_results(result):
     """Display the prediction and explanation."""
     if result:
         prediction = result['prediction']
-        explained_text = result.get('explainedText', 'No explanation available')
+        explained_text = result.get('explained_text', 'No explanation available')
 
         # Display prediction
         print("\nPrediction result:")

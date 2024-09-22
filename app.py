@@ -26,7 +26,6 @@ def load_model_for_task(task_name):
 
     # Construct the model path
     model_path = os.path.join(MODEL_DIR, f"{MODEL_NAME}_best_{task_name}.pt")
-
     # Load model weights and set to evaluation mode
     model.load_state_dict(torch.load(model_path, map_location=torch.device('cpu')))
     model.eval()
@@ -80,6 +79,8 @@ def predict():
     if not task_name or not sentence:
         return jsonify({"error": "Missing task or sentence parameter"}), 400
 
+    print(list(models_and_tokenizers.keys()))
+    print(task_name)
     # Get the preloaded model and tokenizer for the requested task
     model, tokenizer = models_and_tokenizers.get(task_name)
 
@@ -87,9 +88,11 @@ def predict():
         return jsonify({"error": "Invalid task name"}), 400
 
     # Get prediction from the model
+    print("Predicting...")
     prediction = get_prediction(model, tokenizer, sentence)
 
     # Get explanation for the prediction
+    print("Explaining...")
     explained_text = explain_model(model, tokenizer, sentence, prediction)
 
     # Return response as JSON

@@ -36,7 +36,6 @@
         document.getElementById('prediction_form').addEventListener('submit', function(event) {
             event.preventDefault();
             const form_data = new FormData(this);
-
             fetch('/predict', {
                 method: 'POST',
                 body: form_data
