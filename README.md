@@ -1,21 +1,15 @@
-<table>
-  <tr>
-    <td>
-      <img src="./assets/logo.jpg" alt="Logo" width="200" />
-    </td>
-    <td>
-      <h1>Bias Manager</h1>
-      <p>
-        <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License: MIT">
-        <img src="https://img.shields.io/badge/version-0.1-green.svg" alt="Version 0.1">
-        <img src="https://img.shields.io/badge/status-stable-brightgreen.svg" alt="Stable">
-      </p>
-    </td>
-  </tr>
-</table>
+<div align="center">
+  <img src="./assets/logo.jpg" alt="Logo" width="150"/>
 
-## Description
-Bias manager is an innovative Flask-based module that uses state-of-the-art pre-trained transformer models to detect and explain biases in sentences. Whether you're concerned about gender bias, hate speech, or political bias, this tool helps identify and analyze various forms of bias within textual data. It includes both a user-friendly web-based interface, ideal for those who prefer a graphical interaction, and a Python client script for developers or data scientists who want to automate the bias detection process through programmatic interaction. By leveraging advanced transformer models such as BART, RoBERTa, GPT-2, and more, Bias Manager not only predicts whether a sentence contains bias but also provides detailed explanations. These explanations highlight specific words or phrases that influenced the model's decision, to understand how bias is expressed in language. 
+  # Bias Manager
+
+  ![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)
+  ![Version 0.1](https://img.shields.io/badge/version-0.1-green.svg)
+  ![Status: Stable](https://img.shields.io/badge/status-stable-brightgreen.svg)
+    
+  <p>Bias manager is an innovative Flask-based module that uses state-of-the-art pre-trained transformer models to detect and explain biases in sentences. Whether you're concerned about gender bias, hate speech, or political bias, this tool helps identify and analyze various forms of bias within textual data. It includes both a user-friendly web-based interface, ideal for those who prefer a graphical interaction, and a Python client script for developers or data scientists who want to automate the bias detection process through programmatic interaction. By leveraging advanced transformer models such as BART, RoBERTa, GPT-2, and more, Bias Manager not only predicts whether a sentence contains bias but also provides detailed explanations. These explanations highlight specific words or phrases that influenced the model's decision, to understand how bias is expressed in language.</p>
+
+</div>
 
 ## Table of Contents
 
