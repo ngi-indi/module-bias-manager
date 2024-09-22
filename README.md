@@ -7,8 +7,7 @@
   ![Version 0.1](https://img.shields.io/badge/version-0.1-green.svg)
   ![Status: Stable](https://img.shields.io/badge/status-stable-brightgreen.svg)
     
-  <p><strong>Bias Manager</strong> is an innovative <strong>Flask-based</strong> module that uses <strong>state-of-the-art</strong> pre-trained <strong>transformer models</strong> to detect and explain <strong>biases</strong> in sentences. Whether you're concerned about <strong>gender bias</strong>, <strong>hate speech</strong>, or <strong>political bias</strong>, this tool helps identify and analyze various forms of bias within <strong>textual data</strong>. It includes both a user-friendly <strong>web-based interface</strong>, ideal for those who prefer a graphical interaction, and a <strong>Python client script</strong> for developers or data scientists who want to <strong>automate the bias detection process</strong> through <strong>programmatic interaction</strong>. By leveraging advanced transformer models such as <strong>BART</strong>, <strong>RoBERTa</strong>, <strong>GPT-2</strong>, and more, Bias Manager not only <strong>predicts</strong> whether a sentence contains bias but also provides <strong>detailed explanations</strong>. These explanations highlight specific words or phrases that influenced the model's decision, helping to understand how <strong>bias</strong> is expressed in language.</p>
-
+  <p><strong>Bias Manager</strong> is an innovative <strong>Flask-based</strong> module that uses <strong>state-of-the-art</strong> pre-trained <strong>transformer models</strong> to detect and explain <strong>biases</strong> in sentences. Whether you're concerned about <strong>gender bias</strong>, <strong>hate speech</strong>, or <strong>political bias</strong>, this tool helps identify and analyze various forms of bias within <strong>textual data</strong>.</p>
 </div>
 
 ## Table of Contents
@@ -23,19 +22,17 @@
 - [License](#license)
 - [Contact](#contact)
 
----
-
 ## Installation
 
 ### Prerequisites
 
 Ensure you have the following installed:
 
-- **Python 3.8+**
-- **Flask**
-- **PyTorch**
-- **Transformers** (for model handling)
-- **Captum** (for explainability)
+- Python 3.8 as a base programming environment.
+- Flask for server-side management.
+- PyTorch for handling the model training and inference.
+- Transformers for state-of-the-art NLP models.
+- Captum for explainability.
 
 ### Setup
 
@@ -85,7 +82,6 @@ The web-based client provides a simple UI for interacting with the bias detectio
    Open your browser and go to http://127.0.0.1:5000/. 
 
 #### 3. Submit a sentence for bias detection:
-- Select a model (e.g., BART, RoBERTa, GPT-2).
 - Choose the type of bias you want to check (e.g., gender bias, hate speech).
 - Enter a sentence and click "Check" to get predictions.
 
@@ -101,7 +97,7 @@ The ```demo/client.py``` script offers a command-line approach.
 Open ```demo/client.py``` and change the following variables to your desired values:
 
     MODEL = 'roberta'  # Available options: bart, convbert, electra, gpt2, roberta, t5, etc.
-    TASK = 'gender_bias'  # Available bias tasks: cognitive_bias, gender_bias, hate_speech, etc.
+    TASK = 'gender-bias'  # Available bias tasks: cognitive_bias, gender_bias, hate_speech, etc.
     SENTENCE = 'Enter the sentence you want to check for bias.'
 
 #### 2. Run the script:
@@ -147,5 +143,6 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ## Contact
 For any questions or support, please reach out to:
-- Email: support@ngi-indi.com
-- Website: NGI Search INDI
+- University of Cagliari: bart@unica.it, diego.reforgiato@unica.it, ludovico.boratto@unica.it, mirko.marras@unica.it
+- R2M Solution: giuseppe.scarpi@r2msolution.com
+- Website: Coming soon!
