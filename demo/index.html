@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict bias in sentences</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter a sentence to check if it contains bias</h1>
+        <form id="prediction_form" method="post">
+            <label for="model">Choose the model:</label>
+            <select name="model" id="model" required>
+                <option value="bart">Bart</option>
+                <option value="convbert">ConvBert</option>
+                <option value="electra">Electra</option>
+                <option value="gpt2">GPT2</option>
+                <option value="roberta">RoBERTa</option>
+                <option value="robertatwitter">RoBERTa Twitter</option>
+                <option value="t5">T5</option>
+            </select>
+
+            <label for="task">Choose the bias:</label>
+            <select name="task" id="task" required>
+                <option value="cognitive_bias">Cognitive bias</option>
+                <option value="fake_news">Fake news</option>
+                <option value="gender_bias">Gender bias</option>
+                <option value="hate_speech">Hate speech</option>
+                <option value="linguistic_bias">Linguistic bias</option>
+                <option value="political_bias">Political bias</option>
+                <option value="racial_bias">Racial bias</option>
+            </select>
+
+            <textarea name="sentence" rows="4" required placeholder="Enter the sentence here..."></textarea>
+
+            <button type="submit">Check</button>
+            <button type="button" onclick="reset_form()">New sentence</button>
+        </form>
+
+        <div id="prediction">The prediction will appear here</div>
+        <div id="explained">Highlighted text will appear here</div>
+    </div>
+
+    <script>
+        document.getElementById('prediction_form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const form_data = new FormData(this);
+
+            fetch('/predict', {
+                method: 'POST',
+                body: form_data
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('prediction').textContent = data.prediction === 1
+                    ? 'The sentence contains bias'
+                    : 'The sentence does not contain bias';
+                document.getElementById('explained').innerHTML = data.explained_text || 'No explanation available';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('prediction').textContent = 'An error occurred. Please try again later.';
+            });
+        });
+
+        function reset_form() {
+            document.getElementById('prediction').textContent = 'The prediction will appear here';
+            document.getElementById('explained').innerHTML = 'Highlighted text will appear here';
+            document.getElementById('prediction_form').reset();
+        }
+    </script>
+</body>
+</html>
