@@ -14,10 +14,12 @@
 ## Table of Contents
 
 - [Installation](#installation)
-- [Prerequisites](#prerequisites)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
 - [Usage](#usage)
-  - [Using the Web-Based Client (HTML)](#using-the-web-based-client-html)
-  - [Using the Python Client Script](#using-the-python-client-script)
+  - [Using the Web-based client](#using-the-web-based-client-html)
+  - [Using the Python client script](#using-the-python-client-script)
+- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
 
@@ -65,8 +67,8 @@ Install the required Python packages by running:
   ```
 
 #### 4. Download pre-trained models:
-- Download the [pre-trained model weights](https://drive.google.com/drive/folders/1aOTVMTdLcDhOHuj-bcJbO5SPM7Zdh-_O?usp=drive_link) and place them in the appropriate directory: models/.
-- Ensure you have all necessary datasets downloaded and placed in the relevant directories.
+- Download the [pre-trained model weights](https://drive.google.com/drive/folders/1aOTVMTdLcDhOHuj-bcJbO5SPM7Zdh-_O?usp=drive_link) and place them in the appropriate directory: ```models/```.
+- Ensure you have all necessary models downloaded and placed in the relevant directory.
 
 ## Usage
 
@@ -121,7 +123,7 @@ Open ```demo/client.py``` and change the following variables to your desired val
 1. **Fork the repository** by clicking the "Fork" button at the top right of this page.
 2. **Clone your fork** locally:
    ```bash
-   git clone https://github.com/your-username/module-bias-manager.git
+   git clone https://github.com/ngi-indi/module-bias-manager.git
    ```
 3. **Create a new branch** for your feature or bug fix:
    ```bash
