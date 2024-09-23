@@ -1,4 +1,4 @@
-from captum.attr import LayerIntegratedGradients
+from captum.attr import LayerIntegratedGradients, GradientShap
 import matplotlib as mpl
 import numpy as np
 import torch
@@ -46,29 +46,27 @@ def visualize_attributions(attributions, inputs, tokenizer):
 
 
 # Function to explain the model's predictions
-def explain_model(model, tokenizer, sentence, target_label=1, n_steps=20, max_length=64):
-    """Explain model predictions using LayerIntegratedGradients."""
+def explain_model(model, tokenizer, sentence, target_label):
+    """
+    Explain model predictions using different explainability methods such as Saliency,
+    """
 
-    # Access ConvBERT's word embeddings layer (this should match your model structure)
-    layer = model.convbert.embeddings.word_embeddings
+    # Set the model in evaluation mode
+    model.eval()
 
     # Tokenize input sentence
-    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding="max_length", max_length=max_length)
+    inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding="max_length", max_length=128)
+    input_ids = inputs['input_ids']
+    attention_mask = inputs['attention_mask']
 
     # Forward function to return model logits
     def forward_func(input_ids, attention_mask):
         outputs = model(input_ids=input_ids, attention_mask=attention_mask)
         return torch.softmax(outputs.logits, dim=-1)
 
-    # LayerIntegratedGradients instance with fewer steps for faster computation
-    lig = LayerIntegratedGradients(forward_func, layer)
-
-    # Get attributions for the target label with fewer steps
-    attributions, delta = lig.attribute(inputs=inputs['input_ids'],
-                                        additional_forward_args=(inputs['attention_mask'],),
-                                        target=target_label,
-                                        n_steps=n_steps,
-                                        return_convergence_delta=True)
+    # Choose the attribution method
+    explainer = LayerIntegratedGradients(forward_func,  model.convbert.embeddings.word_embeddings)
+    attributions, delta = explainer.attribute(input_ids, additional_forward_args=(attention_mask,), target=target_label, n_steps=10, return_convergence_delta=True)
 
     # Visualize and return attributions in HTML format
     explained_text = visualize_attributions(attributions, inputs, tokenizer)
