@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="flask-app/assets/logo.png" alt="Logo" width="150"/>
+  <img src="assets/logo.png" alt="Logo" width="150"/>
 
   # Bias Manager
 
