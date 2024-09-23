@@ -95,7 +95,7 @@ def predict():
     prediction = get_prediction(model, tokenizer, sentence)
     end_time = time.time()  # End timer for prediction
     prediction_time = end_time - start_time  # Compute time taken
-    print(f"Prediction completed in {prediction_time:.4f} seconds")
+    print(f"Prediction {prediction} completed in {prediction_time:.4f} seconds")
 
     # Measure explanation time
     if explain:
@@ -104,7 +104,7 @@ def predict():
         explained_text = explain_model(model, tokenizer, sentence, prediction)
         end_time = time.time()  # End timer for explanation
         explanation_time = end_time - start_time  # Compute time taken
-        print(f"Explanation completed in {explanation_time:.4f} seconds")
+        print(f"Explanation {explained_text} completed in {explanation_time:.4f} seconds")
     else:
         explained_text = "No explanation requested"
 
