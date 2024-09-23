@@ -14,7 +14,7 @@ hf_logging.set_verbosity_error()
 warnings.filterwarnings("ignore")
 
 # Constants
-MODEL_DIR = 'models'
+MODEL_DIR = './models'
 MODEL_NAME = 'convbert'  # Fixed model name
 TASKS = ['cognitive-bias', 'fake-news', 'gender-bias', 'hate-speech', 'linguistic-bias', 'political-bias', 'racial-bias']
 MODEL_LENGTH = 128  # Default max sequence length
