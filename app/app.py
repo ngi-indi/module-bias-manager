@@ -55,12 +55,23 @@ app = Flask(__name__, template_folder='./demo')
 
 # Function to make predictions
 def get_prediction(model, tokenizer, sentence):
-    """Return model predictions for the given sentence."""
+    """Return model predictions and probability for the given sentence."""
     inputs = tokenizer(sentence, return_tensors="pt", truncation=True, padding="max_length", max_length=MODEL_LENGTH)
+
+    # Ensure no gradients are calculated
     with torch.no_grad():
         outputs = model(**inputs)
-        predictions = torch.softmax(outputs.logits, dim=-1).argmax(dim=-1)
-    return predictions.item()
+
+        # Apply softmax to get the probabilities
+        probabilities = torch.softmax(outputs.logits, dim=-1)
+
+        # Get the predicted label
+        predicted_label = probabilities.argmax(dim=-1).item()
+
+        # Get the probability score for the predicted label
+        predicted_prob = probabilities[0][predicted_label].item()
+
+    return predicted_label, predicted_prob
 
 
 # Route for serving the homepage
@@ -92,7 +103,7 @@ def predict():
     # Measure prediction time
     print("Predicting...")
     start_time = time.time()  # Start timer for prediction
-    prediction = get_prediction(model, tokenizer, sentence)
+    prediction, score = get_prediction(model, tokenizer, sentence)
     end_time = time.time()  # End timer for prediction
     prediction_time = end_time - start_time  # Compute time taken
     print(f"Prediction {prediction} completed in {prediction_time:.4f} seconds")
@@ -112,6 +123,7 @@ def predict():
     return jsonify({
         'sentence': sentence,
         'prediction': prediction,
+        'score': score,
         'explained_text': explained_text
     })
 
