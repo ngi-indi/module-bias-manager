@@ -114,14 +114,14 @@ Open ```demo/client.py``` and change the following variables to your desired val
 #### 1. Build the Docker image:
 Run the following command to build the Docker image:
 
-    docker build -t flask-app .
+    docker build -t bias-manager .
 
 This will create a Docker image named ```flask-app```.
 
 #### 2. Run the Docker container:
 Once the image is built, you can run it using the following command
 
-    docker run -p 5000:5000 flask-app
+    docker run -p 5000:5000 bias-manager
 
 This command maps port 5000 on your local machine to port 5000 inside the container, allowing you to access the Flask app at http://localhost:5000.
 
