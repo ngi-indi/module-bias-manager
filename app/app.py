@@ -76,6 +76,7 @@ def predict():
     # Retrieve form data
     task_name = request.form.get('task')
     sentence = request.form.get('sentence')
+    explain = request.form.get('explain')
 
     if not task_name or not sentence:
         return jsonify({"error": "Missing task or sentence parameter"}), 400
@@ -97,12 +98,15 @@ def predict():
     print(f"Prediction completed in {prediction_time:.4f} seconds")
 
     # Measure explanation time
-    print("Explaining...")
-    start_time = time.time()  # Start timer for explanation
-    explained_text = explain_model(model, tokenizer, sentence, prediction)
-    end_time = time.time()  # End timer for explanation
-    explanation_time = end_time - start_time  # Compute time taken
-    print(f"Explanation completed in {explanation_time:.4f} seconds")
+    if explain:
+        print("Explaining...")
+        start_time = time.time()  # Start timer for explanation
+        explained_text = explain_model(model, tokenizer, sentence, prediction)
+        end_time = time.time()  # End timer for explanation
+        explanation_time = end_time - start_time  # Compute time taken
+        print(f"Explanation completed in {explanation_time:.4f} seconds")
+    else:
+        explained_text = "No explanation requested"
 
     # Return response as JSON
     return jsonify({

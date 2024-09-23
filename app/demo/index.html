@@ -10,6 +10,8 @@
     <div class="container">
         <h1>Bias checker</h1>
         <form id="prediction_form" method="post">
+            <input type="hidden" name="explain" value="true">
+
             <select name="task" id="task" required>
                 <option value="cognitive-bias">Cognitive bias</option>
                 <option value="fake-news">Fake news</option>
