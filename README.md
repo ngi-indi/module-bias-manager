@@ -61,7 +61,7 @@ cd module-bias-manager
 #### 3. Install dependencies:
 Install the required Python packages by running:
   ```bash
-  pip install -r requirements.txt
+  pip install -r ./app/requirements.txt
   ```
 
 #### 4. Download pre-trained models:
@@ -76,7 +76,7 @@ The web-based client provides a simple UI for interacting with the bias detectio
 
 #### 1. Start the Flask server: 
 
-    python app.py
+    python ./app/app.py
 
 #### 2. Access the web interface:
    
@@ -92,10 +92,10 @@ The web-based client provides a simple UI for interacting with the bias detectio
 
 ### Using the Python client script
 
-The ```demo/client.py``` script offers a command-line approach.
+The ```./app/demo/client.py``` script offers a command-line approach.
 
 #### 1. Modify the Python script:
-Open ```demo/client.py``` and change the following variables to your desired values:
+Open ```./app/demo/client.py``` and change the following variables to your desired values:
 
     MODEL = 'convbert'  # Available options: bart, convbert, electra, gpt2, roberta, t5, etc.
     TASK = 'gender-bias'  # Available bias tasks: cognitive-bias, gender-bias, hate-speech, etc.
@@ -103,7 +103,7 @@ Open ```demo/client.py``` and change the following variables to your desired val
 
 #### 2. Run the script:
    
-    python ./demo/client.py
+    python ./app/demo/client.py
 
 #### 3. View the results:
 - The script will print whether the sentence contains bias.
