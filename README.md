@@ -157,7 +157,7 @@ This command maps port 5000 on your local machine to port 5000 inside the contai
 - Ensure that your pull request references any relevant issues.
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](https://github.com/ngi-indi/module-bias-manager/blob/main/LICENSE.md) file for details.
+This project is licensed under the GNU General Public License v3.0 License - see the [LICENSE](https://github.com/ngi-indi/module-bias-manager/blob/main/LICENSE) file for details.
 
 ## Contact
 For any questions or support, please reach out to:
